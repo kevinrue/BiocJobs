@@ -15,7 +15,7 @@ RUN Rscript -e 'options(Ncpus = parallel::detectCores()); \
 # avoids the GitHub API rate limit that install_github() hits on shared
 # runners.
 ARG BIOCJOBS_REF=HEAD
-RUN Rscript -e 'remotes::install_url(paste0("https://github.com/almahmoud/BiocJobs/archive/", Sys.getenv("BIOCJOBS_REF"), ".tar.gz"), subdir = "BiocJobs", upgrade = FALSE)'
+RUN Rscript -e 'remotes::install_url(paste0("https://github.com/kevinrue/BiocJobs/archive/", Sys.getenv("BIOCJOBS_REF"), ".tar.gz"), subdir = "BiocJobs", upgrade = FALSE)'
 
 # The source is bind-mounted rather than copied, so it stays out of the image.
 RUN --mount=type=bind,target=/tmp/src,rw \
